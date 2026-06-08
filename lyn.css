@@ -1,0 +1,120 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: #fce4ec;
+    font-family: 'Poppins', sans-serif;
+    color: #444;
+}
+
+/* Pink Glow Effect - Fixed for the .glow-card class */
+.glow-card {
+    transition: all 0.4s ease-in-out;
+    border: 1px solid #f8bbd0;
+}
+
+.glow-card:hover {
+    transform: translateY(-8px);
+    border-color: #ff80ab;
+    box-shadow: 0 10px 25px 5px rgba(255, 128, 171, 0.4); /* The Pink Glow */
+}
+
+/* Welcome Overlay */
+#welcome-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background-color: #f8bbd0; display: flex; justify-content: center;
+    align-items: center; z-index: 9999; transition: opacity 0.8s ease;
+}
+
+.overlay-content {
+    background: white; padding: 40px; border-radius: 25px;
+    text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Header Styling */
+header {
+    display: flex; flex-direction: column; align-items: center;
+    padding: 50px 20px; background: linear-gradient(to bottom, #f8bbd0, #fce4ec);
+}
+
+header h1 { font-family: "Rouge Script", cursive; color: #d81b60; font-size: 85px; }
+
+.profile-gif { height: 250px; border-radius: 0%; margin-bottom: 20px; }
+
+.nav { margin-top: 30px; background: rgba(255,255,255,0.8); padding: 10px 30px; border-radius: 50px; }
+ul { display: flex; gap: 40px; list-style: none; }
+li a { text-decoration: none; color: #d81b60; font-weight: bold; }
+
+/* Main Section Layout */
+#place {
+    display: flex; justify-content: center; gap: 30px; padding: 50px; flex-wrap: wrap;
+}
+
+.card, .abt {
+    background: white; border-radius: 20px; padding: 30px;
+    text-align: center; margin-bottom: 20px;
+}
+
+.card { flex: 1; min-width: 300px; max-width: 400px; }
+.card img { width: 100%; border-radius: 15px; margin-bottom: 15px; }
+
+/* Interactive Buttons */
+.fun-button {
+    background-color: #ff4081; color: white; border: none;
+    padding: 12px 25px; border-radius: 25px; cursor: pointer; font-weight: bold;
+    transition: 0.3s;
+}
+
+.fun-button:hover { background-color: #f50057; }
+
+.secondary-button { background: none; border: none; color: #aaa; cursor: pointer; font-size: 12px; }
+
+/* Popup Letter Overlay */
+#letter-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.7); display: none; justify-content: center; align-items: center; z-index: 10000;
+}
+
+.letter-content {
+    background: #fff9e6; padding: 40px; width: 90%; max-width: 500px;
+    border-radius: 5px; position: relative; border: 1px solid #d4c39d;
+}
+
+.close-btn { position: absolute; top: 10px; right: 20px; font-size: 30px; cursor: pointer; }
+
+/* Message in a Bottle Animation */
+.bottle-container { cursor: pointer; animation: float 3s ease-in-out infinite; margin: 40px 0; text-align: center;}
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+
+footer { text-align: center; padding: 50px; color: #888; }
+.hover-reveal { background: #d81b60; color: #d81b60; transition: 0.3s; padding: 2px 5px; border-radius: 4px; }
+.hover-reveal:hover { color: white; cursor: pointer; }
+/* 1. Add this to your images in HTML: class="tilt-img" */
+.tilt-img {
+    transition: transform 0.5s ease;
+    width: 100%;
+    border-radius: 15px;
+}
+
+/* 2. This creates the movement effect */
+.glow-box:hover .tilt-img {
+    transform: scale(1.05) rotate(2deg);
+}
+.heart {
+    position: fixed;
+    top: -10%; /* Start off-screen */
+    user-select: none;
+    pointer-events: none;
+    z-index: 9999; /* This ensures they aren't hidden behind the pink background */
+    animation: fall 4s linear forwards;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-10vh) translateX(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(110vh) translateX(20px) rotate(360deg);
+        opacity: 0;
+    }
+}

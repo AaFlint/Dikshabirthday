@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Diksha</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <link rel="stylesheet" href="lyn.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Rouge+Script&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="welcome-overlay">
+        <div class="overlay-content">
+            <h1>🎀 HAPPPY BIRTHDAY DIKSHA 🎀</h1>
+            <p>I made this for my little cute, adorable, sweet, caring friend. SO, DO YOU WANT TO ENTER MY WEBSITE. Here's a 🩷</p>
+            <button id="startBtn" class="fun-button">Yes, let's go! 💗</button>
+        </div>
+    </div>
+
+    <audio id="bg-music" loop>
+        <source src="Kimi no toriko for meow _ Piano cover meowssage.mp3" type="audio/mpeg">
+    </audio>
+
+    <header>
+        <img src="a.jpg" alt="Cute Sparkles" class="profile-gif">
+        <h1>For Diksha</h1>
+        <p>A small gift for you. hope you have all days wonderful and have every dreams as sweetest as it can get.  This whole page is just adoring you. So, get loved !.</p>
+        <nav class="nav">
+            <ul>
+                <li><a href="#about">message for diksha💝</a></li>
+                <li><a href="#place">Memories💝</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about">
+            <div class="abt glow-card">
+                <h2 class="heading">My Friend, Diksha 💖</h2>
+                <p>Cutie ! Hii diksha I see you enetered itt !!!!! Hope you like the music hehe IT was chosen by you mhm There are some stuff like you can get lots of flowers from me.</p>
+            </div>
+        </section>
+
+        <section id="place">
+            <div class="card glow-card">
+                <img src="blue-archive-mika.gif" alt="evelyn">
+                <h2 class="cardheading">you are Kind. yes, you are! 💓</h2>
+                <p>Diksha, you have a heart of honey. Thank you for being such a caring friend. Whenever, I see your message I get really happy! My wishes and prayers for you. TAKE CARE OF YOURSELF MHMMHMHMH</p>
+            </div>
+
+            <div class="card glow-card">
+                <img src="pat.webp" alt="Ocean Aesthetic">
+                <h2 class="cardheading">Your cutness and adorableness</h2>
+                <p>You are absolutely adorable, Diksha! Everything you do is cute and adorable. No matter what other people say you are a certified kutie and adorable!</p>
+            </div>
+
+            <div class="card glow-card">
+                <h2 class="cardheading">Send a flower for my cute bestiee! 🌸</h2>
+                <div id="bouquet-display" style="font-size: 40px; min-height: 60px; margin-bottom: 10px;"></div>
+                <button id="flowerBtn" class="fun-button">Give a Flower 💮</button>
+                <button id="resetBtn" class="secondary-button">Once more, from the start! 🌼</button>
+            </div>
+
+            <div class="card glow-card">
+                <h2 class="cardheading">Cutie🌺</h2>
+                <p id="appreciation-text">Click the button to reveal the reasons</p>
+                <button onclick="revealReason()" class="fun-button">Reveal a reson 💕</button>
+            </div>
+        </section>
+
+        <section id="sea-section">
+            <div class="ocean">
+                <div class="bottle-container" onclick="openBottle()">
+                    <div class="bottle">💘🎀💝</div>
+                    <p class="bottle-label">A message for Diksha...</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="abt glow-card">
+            <h2 class="heading"> My bestie status 🌼.</h2>
+            <p id="timer-display">We have been friends for </p>
+        </div>
+    </main>
+
+    <div id="letter-overlay">
+        <div class="letter-content">
+            <span class="close-btn" onclick="closeBottle()">&times;</span>
+            <h2 class="parisienne-font">loveliest Diksha,</h2>
+            <p class="letter-text">
+                I hope this message finds you. I just want you to know how much I aprreciate you. Your art is very prettty. You are the most adorable, sweetest, kindest person I have ever met. I hope you are really loved and appreciated. I hope you have the best life you could have asked for. 💕💕<br><br>
+                <br><br>
+                🎀🎀
+            </p>
+            <p class="signature">- Fuki</p>
+        </div>
+    </div>
+
+    <footer>
+        <p class="secret-text">This is a secret: <span class="hover-reveal">HAPPY BIRTHDAY THIS WAS JUST A LITTLE GIFT I HOPE YOu LIKED IT 💞</span></p>
+        <p>Made by fuki Hope you liked it! Sorry this was so litlee</p>
+    </footer>
+
+    <script>
+        const startBtn = document.getElementById('startBtn');
+        const welcomeOverlay = document.getElementById('welcome-overlay');
+        const bgMusic = document.getElementById('bg-music');
+
+        startBtn.addEventListener('click', () => {
+            welcomeOverlay.style.opacity = "0";
+            setTimeout(() => { 
+                welcomeOverlay.style.display = "none"; 
+                launchConfetti();
+            }, 800);
+            
+            // This force-starts the music after her click
+            bgMusic.play().then(() => {
+                console.log("Music is playing!");
+            }).catch(error => {
+                alert("The browser couldn't find mhm.mp3. Check your filename!");
+                console.log("Music error:", error);
+            });
+            
+            updateTimer();
+        });
+
+        // Flower logic
+        const flowerBtn = document.getElementById('flowerBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const bouquetDisplay = document.getElementById('bouquet-display');
+        const flowerImages = [
+            '<img src="flower_1.jpg" class="small-flower">',
+            '<img src="flower_2.jpg" class="small-flower">',
+            '<img src="flower_3.jpg" class="small-flower">',
+            '<img src="flower_4.jpg" class="small-flower">',
+            '<img src="flower_5.jpg" class="small-flower">',
+            '<img src="flower_6.jpg" class="small-flower">',
+            '<img src="flower_7.jpg" class="small-flower">',
+            '<img src="flower_8.jpg" class="small-flower">',
+            '<img src="flower_9.jpg" class="small-flower">',
+            '<img src="flower_10.jpg" class="small-flower">',
+            '<img src="flower_11.jpg" class="small-flower">',
+            '<img src="flower_12.jpg" class="small-flower">',
+            '<img src="flower_13.jpg" class="small-flower">',
+            '<img src="flower_14.jpg" class="small-flower">',
+            '<img src="flower_15.jpg" class="small-flower">',
+            '<img src="flower_16.jpg" class="small-flower">',
+            '<img src="flower_17.jpg" class="small-flower">',
+            '<img src="flower_18.jpg" class="small-flower">',
+            '<img src="flower_19.jpg" class="small-flower">',
+            '<img src="flower_20.jpg" class="small-flower">',
+            '<img src="flower_21.jpg" class="small-flower">',
+            '<img src="flower_22.jpg" class="small-flower">',
+        ];
+
+        flowerBtn.addEventListener('click', () => {
+            const randomFlowerTag = flowerImages[Math.floor(Math.random() * flowerImages.length)];
+            bouquetDisplay.insertAdjacentHTML('beforeend', randomFlowerTag);
+        });
+
+        resetBtn.addEventListener('click', () => { bouquetDisplay.innerHTML = ""; });
+
+        function updateTimer() {
+            const startDate = new Date("2026-05-19"); 
+            const now = new Date();
+            const diff = now - startDate;
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            document.getElementById("timer-display").innerText = `We have been friends for ${days} amazing days! ✨`;
+        }
+
+        let currentReasonIndex = 0;
+
+        const reasons = [
+            "Your Name is very cute and adorable! 🌸",
+            "You are very much kind and supportive. 💖",
+            "talking to you makes my day the best it could ever be! 🍁",
+            "You are a the most cutest and sweetest person I have ever met! 💕" ,
+            "I am so grateful to have you as my friend! 🌼",
+            "You are a certified cutie! 🥰",,
+            "you have the most cutness and the most angelic voice I ever heard! 💓",
+            "You are loved and appreciated by me 🌺",
+        ];
+
+        function revealReason() {
+    const text = document.getElementById("appreciation-text");
+    
+    // 1. Hide the current text first
+    text.style.opacity = 0;
+
+    setTimeout(() => {
+        // 2. Set the text to the current index
+        text.innerText = reasons[currentReasonIndex];
+
+        // 3. Move to the next index, or go back to 0 if we hit the end
+        currentReasonIndex = (currentReasonIndex + 1) % reasons.length;
+
+        // 4. Show the new text
+        text.style.opacity = 1;
+    }, 300);
+}
+
+        function openBottle() { document.getElementById("letter-overlay").style.display = "flex"; }
+        function closeBottle() { document.getElementById("letter-overlay").style.display = "none"; }
+        function launchConfetti() {
+    confetti({
+        particleCount: 150,
+        spread: 70,
+        origin: { y: 0.6 },
+        colors: ['#ff80ab', '#f8bbd0', '#ff4081']
+    });
+}
+
+// Call this inside your existing startBtn listener
+startBtn.addEventListener('click', () => {
+    welcomeOverlay.style.opacity = "0";
+    setTimeout(() => { 
+        welcomeOverlay.style.display = "none"; 
+        launchConfetti(); // This fires the confetti
+    }, 800);
+    bgMusic.play();
+    updateTimer();
+});
+function createHeart() {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    
+    // Choose a random heart emoji
+    const emojis = ['❤️', '💖', '💗', '🎂', '💞','💕','🎂'];
+    heart.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+    
+    // Random horizontal start position
+    heart.style.left = Math.random() * 100 + "vw";
+    
+    // Random size
+    heart.style.fontSize = Math.random() * 20 + 15 + "px";
+    
+    // Random speed
+    heart.style.animationDuration = Math.random() * 2 + 3 + "s";
+    
+    document.body.appendChild(heart);
+
+    // Clean up memory
+    setTimeout(() => {
+        heart.remove();
+    }, 4000);
+}
+
+// Start generating hearts immediately
+setInterval(createHeart, 300);
+    </script>
+</body>
+</html>
